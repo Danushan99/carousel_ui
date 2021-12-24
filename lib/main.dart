@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp((const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Homepage(),
     )));
 
@@ -14,6 +15,12 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: <Widget>[],
+        ),
+      ),
+    );
   }
 }
