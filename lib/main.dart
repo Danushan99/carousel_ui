@@ -18,7 +18,12 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       body: Container(
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            Container(
+              decoration:
+                  BoxDecoration(image: DecorationImage(image: AssetImage())),
+            )
+          ],
         ),
       ),
     );
