@@ -21,7 +21,7 @@ class _HomepageState extends State<Homepage> {
           children: <Widget>[
             Container(
               height: 500,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                 image: AssetImage('assets/images/w1.jpeg'),
                 fit: BoxFit.cover,
