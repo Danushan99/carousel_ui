@@ -20,8 +20,12 @@ class _HomepageState extends State<Homepage> {
         child: Column(
           children: <Widget>[
             Container(
-              decoration:
-                  BoxDecoration(image: DecorationImage(image: AssetImage())),
+              height: 500,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage('assets/images/w1.jpeg'),
+                fit: BoxFit.cover,
+              )),
             )
           ],
         ),
