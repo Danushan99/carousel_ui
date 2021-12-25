@@ -8,7 +8,7 @@ void main() => runApp((const MaterialApp(
     )));
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key}) : super(key: key);
+  const Homepage({Key key}) : super(key: key);
 
   @override
   _HomepageState createState() => _HomepageState();
@@ -68,7 +68,7 @@ class _HomepageState extends State<Homepage> {
                     gradient: LinearGradient(
                       begin: Alignment.bottomRight,
                       colors: [
-                        Colors.grey[900]!.withOpacity(.9),
+                        Colors.grey[900].withOpacity(.9),
                         Colors.grey.withOpacity(.0)
                       ],
                     ),
