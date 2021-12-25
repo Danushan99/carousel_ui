@@ -60,15 +60,28 @@ class _HomepageState extends State<Homepage> {
             GestureDetector(
               onHorizontalDragEnd: (DragEndDetails details) {
                 if (details.velocity.pixelsPerSecond.dx > 0) {
-                } else if (details.velocity.pixelsPerSecond.dx < 0) {}
+                  _preve();
+                } else if (details.velocity.pixelsPerSecond.dx < 0) {
+                  _next();
+                }
               },
               child: Container(
-                height: 500,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/images/w1.jpeg'),
-                  fit: BoxFit.cover,
-                )),
+                height: 550,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(products[currentIndex][0]),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.bottomRight,
+                          colors: [
+                        Colors.grey[700]!.withOpacity(.9),
+                        Colors.grey.withOpacity(.0)
+                      ])),
+                ),
               ),
             )
           ],
