@@ -41,6 +41,16 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+  void _preve() {
+    setState(() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
