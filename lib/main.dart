@@ -19,13 +19,19 @@ class _HomepageState extends State<Homepage> {
       body: Container(
         child: Column(
           children: <Widget>[
-            Container(
-              height: 500,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage('assets/images/w1.jpeg'),
-                fit: BoxFit.cover,
-              )),
+            GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails details) {
+                if (details.velocity.pixelsPerSecond.dx > 0) {
+                } else if (details.velocity.pixelsPerSecond.dx < 0) {}
+              },
+              child: Container(
+                height: 500,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/w1.jpeg'),
+                  fit: BoxFit.cover,
+                )),
+              ),
             )
           ],
         ),
