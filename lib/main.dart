@@ -66,6 +66,7 @@ class _HomepageState extends State<Homepage> {
                 }
               },
               child: Container(
+                width: double.infinity,
                 height: 550,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -74,19 +75,43 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 child: Container(
-                  decoration: BoxDecoration(
+                    decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          colors: [
-                        Colors.grey[700]!.withOpacity(.9),
-                        Colors.grey.withOpacity(.0)
-                      ])),
-                ),
+                        begin: Alignment.bottomRight,
+                        colors: [
+                          Colors.grey[700]!.withOpacity(.9),
+                          Colors.grey.withOpacity(.0)
+                        ],
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Container(
+                          width: 90,
+                          child: Row(
+                            children: <Widget>[],
+                          ),
+                        )
+                      ],
+                    )),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget _indecator(bool isActiv) {
+    return Expanded(
+        child: Container(
+      height: 4,
+      margin: EdgeInsets.only(
+        right: 5,
+      ),
+      decoration:
+          BoxDecoration(color: isActiv ? Colors.grey[800] : Colors.white),
+    ));
   }
 }
