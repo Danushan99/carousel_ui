@@ -13,6 +13,24 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final List<List<String>> products = [
+    [
+      'assets/images/w1.jpeg',
+      'watch name super'
+          '19 \$'
+    ],
+    [
+      'assets/images/w2.jpeg',
+      'watch name super'
+          '19 \$'
+    ],
+    [
+      'assets/images/w3.jpeg',
+      'watch name super'
+          '19 \$'
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
