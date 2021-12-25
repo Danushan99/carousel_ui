@@ -14,21 +14,9 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final List<List<String>> products = [
-    [
-      'assets/images/w1.jpeg',
-      'watch name super'
-          '19 \$'
-    ],
-    [
-      'assets/images/w2.jpeg',
-      'watch name super'
-          '19 \$'
-    ],
-    [
-      'assets/images/w3.jpeg',
-      'watch name super'
-          '19 \$'
-    ],
+    ['assets/images/w1.jpeg', 'watch name super', '19 \$'],
+    ['assets/images/w2.jpeg', 'watch name super', '19 \$'],
+    ['assets/images/w3.jpeg', 'watch name super', '19 \$'],
   ];
   int currentIndex = 0;
   void _next() {
@@ -89,12 +77,40 @@ class _HomepageState extends State<Homepage> {
                       children: <Widget>[
                         Container(
                           width: 90,
+                          margin: EdgeInsets.only(bottom: 60),
                           child: Row(
-                            children: <Widget>[],
+                            children: _buildIndicator(),
                           ),
                         )
                       ],
                     )),
+              ),
+            ),
+            Expanded(
+              child: Transform.translate(
+                offset: Offset(0, -40),
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        products[currentIndex][1],
+                        style: TextStyle(
+                            color: Colors.grey[800],
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
@@ -113,5 +129,17 @@ class _HomepageState extends State<Homepage> {
       decoration:
           BoxDecoration(color: isActiv ? Colors.grey[800] : Colors.white),
     ));
+  }
+
+  List<Widget> _buildIndicator() {
+    List<Widget> indicators = [];
+    for (int i = 0; i < products.length; i++) {
+      if (currentIndex == i) {
+        indicators.add(_indecator(true));
+      } else {
+        indicators.add(_indecator(false));
+      }
+    }
+    return indicators;
   }
 }
