@@ -30,6 +30,16 @@ class _HomepageState extends State<Homepage> {
           '19 \$'
     ],
   ];
+  int currentIndex = 0;
+  void _next() {
+    setState(() {
+      if (currentIndex < products.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = currentIndex;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
