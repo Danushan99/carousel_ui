@@ -1,11 +1,13 @@
 import 'dart:ui';
-
+import 'package:carousel_ui/animations/fadeanimation.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp((const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-    )));
+void main() => runApp(
+      (const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Homepage(),
+      )),
+    );
 
 class Homepage extends StatefulWidget {
   const Homepage({Key key}) : super(key: key);
@@ -64,27 +66,28 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
               child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomRight,
-                      colors: [
-                        Colors.grey[900].withOpacity(.9),
-                        Colors.grey.withOpacity(.0)
-                      ],
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Container(
-                        width: 90,
-                        margin: const EdgeInsets.only(bottom: 60),
-                        child: Row(
-                          children: _buildIndicator(),
-                        ),
-                      )
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomRight,
+                    colors: [
+                      Colors.grey[900].withOpacity(.9),
+                      Colors.grey.withOpacity(.0)
                     ],
-                  )),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      width: 90,
+                      margin: const EdgeInsets.only(bottom: 60),
+                      child: Row(
+                        children: _buildIndicator(),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
           Expanded(
@@ -102,88 +105,104 @@ class _HomepageState extends State<Homepage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      products[currentIndex][1],
-                      style: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
+                    FadeAnimation(
+                      1.3,
+                      Text(
+                        products[currentIndex][1],
+                        style: TextStyle(
+                            color: Colors.grey[800],
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        Text(
-                          products[currentIndex][2],
-                          style: TextStyle(
-                              color: Colors.yellow[700],
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold),
-                        ),
+                        FadeAnimation(
+                            1.4,
+                            Text(
+                              products[currentIndex][2],
+                              style: TextStyle(
+                                  color: Colors.yellow[700],
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold),
+                            )),
                         const SizedBox(
                           width: 10,
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 20,
-                              color: Colors.yellow[700],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 20,
-                              color: Colors.yellow[700],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 20,
-                              color: Colors.yellow[700],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 20,
-                              color: Colors.yellow[700],
-                            ),
-                            Icon(
-                              Icons.star_half,
-                              size: 20,
-                              color: Colors.yellow[700],
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const SizedBox(
-                          height: 35,
-                        ),
-                        Text(
-                          ' (4.5/70 Reviews)',
-                          style:
-                              TextStyle(color: Colors.green[500], fontSize: 13),
+                        FadeAnimation(
+                          1.4,
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: Colors.yellow[700],
+                              ),
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: Colors.yellow[700],
+                              ),
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: Colors.yellow[700],
+                              ),
+                              Icon(
+                                Icons.star,
+                                size: 20,
+                                color: Colors.yellow[700],
+                              ),
+                              Icon(
+                                Icons.star_half,
+                                size: 20,
+                                color: Colors.yellow[700],
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     ),
-                    Expanded(
+                    FadeAnimation(
+                      1.5,
+                      Row(
+                        children: [
+                          const SizedBox(
+                            height: 35,
+                          ),
+                          Text(
+                            '(4.5/70 Reviews)',
+                            style: TextStyle(
+                                color: Colors.green[500], fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                    FadeAnimation(
+                      1.7,
+                      Expanded(
                         child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.yellow[700],
-                            borderRadius: BorderRadius.circular(8)),
-                        child: const Center(
-                          child: Text(
-                            "ADD TO CARD",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow[700],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "ADD TO CARD",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ))
+                    ),
                   ],
                 ),
               ),
